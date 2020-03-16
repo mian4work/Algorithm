@@ -42,6 +42,11 @@ public class Solution {
         return numWays(s, s.length());
     }
 
+    public int numDecodingsMemo(String s) {
+        Integer[] memo = new Integer[s.length() + 1];
+        return numWays(s, s.length());
+    }
+
     /**
      *
      * @param s the original string
@@ -67,6 +72,39 @@ public class Solution {
             result += numWays(s, len - 2);
         }
 
+        return result;
+    }
+
+    /**
+     * Use an Integer array to memorize the result. The key is any given length of data, the ways are the same
+     * @param s
+     * @param len
+     * @param memo
+     * @return
+     */
+    private int numWays(String s, int len, Integer[] memo) {
+        //when it is an empty string
+        if(len == 0) {
+            return 1;
+        }
+
+        //check if the first digit in the sub string is 0
+        int start = s.length() - len;
+        if(s.charAt(start) == '0') {
+            return 0;
+        }
+
+        if(memo[len] != null) {
+            return memo[len];
+        }
+
+        //process the first digit
+        int result = numWays(s, len - 1);
+        //process first digit + second digit. check if rest length >= 2 and if it is > 36
+        if(len >= 2 && Integer.valueOf(s.substring(start, start + 1)) <= 36) {
+            result += numWays(s, len - 2);
+        }
+        memo[len] = result;
         return result;
     }
 }
