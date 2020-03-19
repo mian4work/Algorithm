@@ -15,7 +15,7 @@ public class Solution {
      *      1. i==0, it is 1
      *      2. i==1, it is the max between max([1, -3], [-3]) which is first: -2
      *      3. i==2, it is the max between max([1, -3, 2], [2]) which is max(sum[i-1] + arr[i], arr[i]): max(-2 + 2, 2) == 2
-     *      4. i==3, it is the max between max([1, -3, 2, 1], [i]) which is max(sum[i-1] + arr[i], arr[i]): max(2 + 1, 2) == 3
+     *      4. i==3, it is the max between max([1, -3, 2, 1], [1]) which is max(sum[i-1] + arr[i], arr[i]): max(2 + 1, 2) == 3
      *      5. i==4, it is the max between max([1, -3, 2, 1, -1], [-1]) which is max(sum[i-1] + arr[i], arr[i]): max(3 - 1, -1) == 2
      *
      * So, the DP formula is
@@ -30,7 +30,7 @@ public class Solution {
      * @param arr
      * @return
      */
-    int maxSubArray(int[] arr) {
+    public int maxSubArray(int[] arr) {
         if(arr == null || arr.length == 0) {
             return 0;
         }
@@ -49,5 +49,21 @@ public class Solution {
         }
 
         return max;
+    }
+
+    /**
+     * Extend the above problem. Return the sub-array instead of just sum.
+     *
+     * Set two pointer, start and end.
+     *
+     * On given position i, use max(max[i-1] + arr[i], arr[i]) to calculate the max value between 0..i:
+     *      When i==0, start=end=arr[0]
+     *      When max[i] > max start=end=i
+     *      Keep looping and end++ until max[i] < max
+     * @param arr
+     * @return
+     */
+    public int[] maxContiguousSubArray(int[] arr) {
+        return new int[]{};
     }
 }
