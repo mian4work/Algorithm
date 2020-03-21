@@ -57,7 +57,7 @@ public class Solution {
         if(n == 0 || n == 1) {
             return 1;
         }
-        
+
         return x.stream().reduce((a, b) -> climbStairs(n - a, x) + climbStairs(n - b, x)).get();
     }
 }
