@@ -12,6 +12,13 @@ import java.util.Set;
  */
 public class Solution {
 
+    /**
+     * This can be further optimised to check which list is longer and only check the number of nodes in shorter list.
+     * 
+     * @param l1
+     * @param l2
+     * @return
+     */
     public int joint(Node l1, Node l2) {
         if(l1 == null || l2 == null) {
             return 0;
