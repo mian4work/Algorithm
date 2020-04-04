@@ -16,9 +16,17 @@ public class Main {
         set.add("and");
         set.add("beyond");
 
-        printArray(solution.wordBreak(set, "thequickbrownfox"));
-        printArray(solution.wordBreak(set, "bedbathandbeyond"));
-        printArray(solution.wordBreak(set, "hello"));
+        Set<String> set2 = new HashSet<>();
+        set2.add("bed");
+        set2.add("bedbath");
+
+//        printArray(solution.wordBreakForward(set, "thequickbrownfox"));
+//        printArray(solution.wordBreakForward(set, "bedbathandbeyond"));
+//        printArray(solution.wordBreakForward(set, "hello"));
+
+        //printArray(solution.wordBreakForward(set2, "bedbath"));
+        //printArray(solution.wordBreakBackward(set2, "bedbath"));
+        printArray(solution.wordBreakRecursion(set2, "bedbath"));
     }
 
     private static void printArray(String[] strings) {

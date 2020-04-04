@@ -15,7 +15,16 @@ import java.util.Set;
  */
 public class Solution {
 
-    public String[] wordBreak(Set<String> dict, String s) {
+    /**
+     * Parse the string from beginning to the end.
+     *
+     * This won't work in the case that dict: "bed", "bedbath" and the string is "bedbath"
+     *
+     * @param dict
+     * @param s
+     * @return
+     */
+    public String[] wordBreakForward(Set<String> dict, String s) {
         if(dict == null || dict.size() == 0 || s == null || s.length() == 0) {
             return null;
         }
@@ -31,5 +40,60 @@ public class Solution {
         }
 
         return list.size() > 0 ? list.toArray(new String[]{}) : null;
+    }
+
+    /**
+     * Backward loop will solve the problem of dict: "bed", "bedbath" and the string is "bedbath"
+     *
+     * @param dict
+     * @param s
+     * @return
+     */
+    public String[] wordBreakBackward(Set<String> dict, String s) {
+        if(dict == null || dict.size() == 0 || s == null || s.length() == 0) {
+            return null;
+        }
+
+        List<String> list = new ArrayList<>();
+        int pointer = s.length() - 1;
+
+        for(int i = pointer; i >= 0; i--) {
+            String temp = s.substring(i, pointer + 1);
+            if(dict.contains(temp)) {
+                list.add(0, temp);
+                pointer = i;
+            }
+        }
+
+        return list.size() > 0 ? list.toArray(new String[]{}) : null;
+    }
+
+    /**
+     * Use recursion to do the work. Not working. need more work
+     *
+     * @param dict
+     * @param s
+     * @return
+     */
+    public String[] wordBreakRecursion(Set<String> dict, String s) {
+        if(dict == null || dict.size() == 0 || s == null || s.length() == 0) {
+            return null;
+        }
+
+        List<String> list = new ArrayList<>();
+        helper(dict, s, list);
+        return list.size() > 0 ? list.toArray(new String[]{}) : null;
+    }
+
+    private void helper(Set<String> dict, String s, List<String> result) {
+        if(s.length() == 0) {
+            return;
+        }
+
+        if(dict.contains(s)) {
+            result.add(0, s);
+        }
+
+        helper(dict, s.substring(0, s.length() - 1), result);
     }
 }
