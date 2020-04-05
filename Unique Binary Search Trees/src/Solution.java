@@ -24,6 +24,8 @@ public class Solution {
      *
      * So the algorithm is sum(i, n) = sum(i-1, n) * sum(n-i, n) where 1 < i < n
      *
+     * The best explanation: https://www.youtube.com/watch?v=HWJEMKWzy-Q
+     *
      * @param n
      * @return
      */
