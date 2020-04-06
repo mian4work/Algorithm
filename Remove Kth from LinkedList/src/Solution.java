@@ -11,7 +11,7 @@
 public class Solution {
     /**
      * This is a typical two points problem.
-     * 
+     *
      * @param head
      * @param k
      */
