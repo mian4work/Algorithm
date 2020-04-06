@@ -18,7 +18,7 @@ public class Solution {
 
     /**
      * My solution.
-     *      1. Scan to see if '*' exists, remove the part before '*'.
+     *      1. Scan to see if the last '*' exists, remove the part before '*'.
      *      2. Scan rest of sub string with '.'
      * @param regex
      * @param s
