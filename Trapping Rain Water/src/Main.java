@@ -6,5 +6,9 @@ public class Main {
 	    Solution solution = new Solution();
 	    System.out.println("Brute Force Solution: " + solution.trapBruteForce(height));
 		System.out.println("Pre calculation Solution: " + solution.trapPrefixMax(height));
+
+		DailyCoding dc = new DailyCoding();
+		System.out.println("Daily coding Pre calculation Solution: " + dc.trapArray(height));
+		System.out.println("Daily coding Two pointers Solution: " + dc.trapTwoPointer(height));
     }
 }
