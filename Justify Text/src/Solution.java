@@ -27,6 +27,10 @@ public class Solution {
 
     /**
      * Brute force solution. Still have bugs but the point is there.
+     *
+     * But the correct solution should be
+     *      1. fit as many words in a line and create a list of lines
+     *      2. justify by adding spaces until the size is k.
      * 
      * @param words
      * @param k
