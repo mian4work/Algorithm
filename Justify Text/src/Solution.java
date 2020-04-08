@@ -25,6 +25,39 @@ import java.util.List;
  */
 public class Solution {
 
+    public List<String> justifyWords(String[] words, int k) {
+        List<String> ans = new ArrayList<>();
+        List<List<String>> lines = group(words, k);
+        for(int i = 0; i < lines.size(); i++) {
+
+        }
+
+        return null;
+    }
+
+    List<List<String>> group(String[] words, int k) {
+        List<List<String>> lines = new ArrayList<>();
+        List<String> line = new ArrayList<>();
+        int lineLength = 0;
+
+        for(int i = 0; i < words.length; i++) {
+            String word = words[i] + " ";
+            if(word.length() + lineLength > k) {
+                lines.add(line);
+                line = new ArrayList<>();
+                line.add(word);
+                lineLength = word.length();
+            } else {
+                line.add(word);
+                lineLength += word.length();
+            }
+        }
+        lines.add(line);
+
+        return lines;
+    }
+    
+
     /**
      * Brute force solution. Still have bugs but the point is there.
      *
