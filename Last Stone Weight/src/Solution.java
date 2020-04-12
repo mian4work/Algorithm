@@ -1,3 +1,5 @@
+import java.util.PriorityQueue;
+
 /*
     We have a collection of stones, each stone has a positive integer weight.
 
@@ -28,7 +30,7 @@ public class Solution {
      *
      * The main idea is to do a insertion sort (for short list, insertion sort is quick). Then pick up the first two and
      * calculate the result. put the result in the second position and sort the rest of the array from the second position.
-     * 
+     *
      * @param stones
      * @return
      */
@@ -72,5 +74,20 @@ public class Solution {
         arr[i] = arr[i] + arr[j];
         arr[j] = arr[i] - arr[j];
         arr[i] = arr[i] - arr[j];
+    }
+
+    /**
+     * A clean solution by using priority queue.
+     * 
+     * @param A
+     * @return
+     */
+    public int lastStoneWeightPQ(int[] A) {
+        PriorityQueue<Integer> pq = new PriorityQueue<>((a, b)-> b - a);
+        for (int a : A)
+            pq.offer(a);
+        while (pq.size() > 1)
+            pq.offer(pq.poll() - pq.poll());
+        return pq.poll();
     }
 }
