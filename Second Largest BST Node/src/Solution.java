@@ -5,6 +5,15 @@
  */
 public class Solution {
 
+    /**
+     * Nothing fancy. Keep searching right node until its right child is null.
+     *
+     * The trick is to remember the parent node. If both left and right children is null, return parent.
+     * If right is null but left exists, return left because left is always smaller than parent.
+     *
+     * @param root
+     * @return
+     */
     public TreeNode secondLargest(TreeNode root) {
         if(root == null) {
             return null;
