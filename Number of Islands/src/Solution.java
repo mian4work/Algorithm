@@ -54,7 +54,7 @@ public class Solution {
 
     /**
      * A similar solution but more concise. The key is to mark visited island to '0' so it will not be visited again.
-     * It saves the space. 
+     * It saves the space.
      *
      * Given a 2d grid map of '1's (land) and '0's (water),
      * count the number of islands.
