@@ -58,6 +58,20 @@ public class Solution {
      *
      * I have provided java code for this problem in the comment section.
      * If you are interested, you can check that. Happy coding.
+     *
+     * Also notice that the probability is cumulative:
+     *
+     * for weights [1, 4, 5]
+     * 10% chances of getting index 0
+     * 40% chances of getting index 1
+     * 50% chances of getting index 2.
+     * Choose a random number between 0 to 1.
+     * Cumulative probabilities [0.1, 0.5, 1.0]
+     * If random is between 0 - 0.1, then return index 0.
+     * If it is between 0.1 - 0.5, then return index 1.
+     * If it is between 0.5 - 1.0, then return index 2.
+     *
+     *
      * @param w
      */
     public Solution(int[] w) {
@@ -76,7 +90,7 @@ public class Solution {
 
     /**
      * Need to know the binarySearch, which is different from regular search. It returns the insertion position.
-     * 
+     *
      * @return
      */
     public int pickIndex() {
