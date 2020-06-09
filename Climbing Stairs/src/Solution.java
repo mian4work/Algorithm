@@ -35,6 +35,7 @@ public class Solution {
      *
      * If stair is 0 or 1, the step is 1.
      * Then the rest step is the previous step + previous_previous step: climb(n) = climb(n-1) + climb(n-2).
+     * Check python file for dynamic programming solution
      *
      * @param n
      * @return
