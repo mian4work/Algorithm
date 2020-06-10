@@ -27,14 +27,15 @@
  */
 public class Solution {
     /**
-     * A simple binary search.
+     * A simple binary search. We need one extra check when target is greater than biggest one in array since we are
+     * using low as result. (low can reach maximum to arr.length - 1)
      *
      * Note:
      *      1. use low < high
      *      2. use high = mid if target on left
      *      3. use low = mid + 1 if target on right
      *      4. return low.
-     *      
+     *
      * @param nums
      * @param target
      * @return
