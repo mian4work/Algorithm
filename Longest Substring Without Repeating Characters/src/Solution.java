@@ -25,31 +25,33 @@ import java.util.Set;
 public class Solution {
 
     /**
-     * The concept is simple. Just use a Set to check if it is duplicated (set.add() returns true/false)
+     * The concept is simple. Just use a Set to check if it is duplicated (set.contains returns true/false)
      *
-     * But for each element i, when you add it and find, oh shit, it is a duplicated one, how to do?
-     * Simple, just get the substring from pointer to i - 1 !!!
+     * Once you find a dup, create a new HashSet and set pointer to i, and add i into set
      *
-     * This is what I learnt.
+     * Don't forget the last part of string after the loop is finished.
      *
      *
      * @param s
      * @return
      */
     public int lengthOfLongestSubstring(String s) {
-        if(s == null || s.length() == 0) {
+        if(s == null) {
             return 0;
         }
-        int max = 0, pointer = 0;
+        int max = 0, pointer = 0, i = 0;
         Set<Character> set = new HashSet<>();
 
-        for(int i = 0; i < s.length(); i++) {
-            if(!set.add(s.charAt(i))) {
-                max = Math.max(max, s.substring(pointer, i - 1).length());
-                set.remove(s.charAt(pointer));
-                pointer++;
+        for(i = 0; i < s.length(); i++) {
+            if(set.contains(s.charAt(i))) {
+                max = Math.max(max, s.substring(pointer, i).length()); // i is not included
+                set = new HashSet<>();
+                pointer = i;
             }
+            set.add(s.charAt(i));
         }
+
+        max = Math.max(max, s.substring(pointer, i).length());
         return max;
     }
 }
